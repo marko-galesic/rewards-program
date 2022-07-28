@@ -1,30 +1,31 @@
 package com.company.rewardspoints.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Transaction {
     @Id
     @GeneratedValue
     private Long id;
 
     @NotNull
-    @Getter @Setter
+    private Date date;
+
+    @NotNull
+    @Column(nullable = false)
     private Long customerId;
 
     @NotNull
     @Column(nullable = false)
-    @Getter @Setter
     private Double amount;
 }
